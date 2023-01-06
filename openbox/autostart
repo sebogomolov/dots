@@ -1,0 +1,3 @@
+setxkbmap -layout 'us,ru' -option 'grp:caps_toggle,grp_led: caps' &
+redshift -l 45.039268:38.987221 &
+tint2 &
