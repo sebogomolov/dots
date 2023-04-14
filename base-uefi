@@ -1,0 +1,56 @@
+#!/bin/bash
+
+#timedatectl set-timezone Europe/Moscow
+#pacman -Sy
+#mkfs.fat -F 32 /dev/sdx1
+#mkfs.btrfs /dev/sdx2
+#mount  /dev/sdX2 /mnt
+#btrfs subvolume create /mnt/@
+#umount /mnt
+#mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@ /dev/sdx2 /mnt
+#mkdir /mnt/boot
+#mount /dev/sdx1 /mnt/boot
+#pacstrap -K /mnt base linux linux-firmware btrfs-progs zstd neovim git
+#genfstab -U /mnt >> /mnt/etc/fstab
+
+#arch-chroot /mnt/
+
+#ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+#sed -i '171s/.//' /etc/locale.gen
+#sed -i '398s/.//' /etc/locale.gen
+#locale-gen
+#echo "LANG=ru_RU.UTF-8" >> /etc/locale.conf
+#echo -e "FONT=cyr-sun16\nKEYMAP=ru" >> /etc/vconsole.conf
+#echo "workstation" >> /etc/hostname
+#echo "127.0.0.1 localhost" >> /etc/hosts
+#echo "::1       localhost" >> /etc/hosts
+#echo "127.0.1.1 workstation.localdomain workstation" >> /etc/hosts
+
+#pacman -S base-devel linux-headers intel-ucode grub efibootmgr networkmanager reflector gvfs-mtp inetutils noto-fonts noto-fonts-cjk noto-fonts-emoji systemd-resolvconf tmux ttf-font-awesome ttf-jetbrains-mono ttf-joypixels ttf-nerd-fonts-symbols-common ttf-roboto unzip wireguard-tools alacritty yt-dlp mpv gparted htop pipewire-pulse zsh zsh-completions zsh-syntax-highlighting xorg lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings cinnamon arc-gtk-theme arc-icon-theme flatpak iptables-nft dnsmasq qemu-base qemu-arch-extra edk2-ovmf vde2 virt-manager bridge-utils dmidecode python-neovim firewalld ipset
+
+#systemctl enable NetworkManager
+#systemctl enable systemd-resolved
+#systemctl enable fstrim.timer
+#systemctl enable lightdm
+#systemctl enable libvirtd
+#systemctl enable firewalld
+
+#useradd -m -G wheel -s /bin/zsh sergey
+#usermod -aG libvirt sergey
+
+#grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+
+#printf "\e[1;32mDone! Change passwords, add super user, change /etc/defaulst/grub, and run grub-mkconfig -o /boot/grub/grub.cfg.\e[0m"
+
+#exit, umount -R /mnt, reboot
+
+# BACKUP
+#sudo mount /dev/sdaX /mnt
+#cd /mnt
+#sudo btrfs subvolume snapshot ./@ ./@_clean
+
+
+#sudo ln -rsf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+#sudo flatpak remote-delete flathub
+#flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#flatpak install flathub com.discordapp.Discord com.github.tchx84.Flatseal com.obsproject.Studio org.flameshot.Flameshot org.gimp.GIMP org.gnome.Rhythmbox3 org.keepassxc.KeePassXC org.mozilla.firefox org.qbittorrent.qBittorrent org.telegram.desktop

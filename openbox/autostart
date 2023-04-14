@@ -1,0 +1,6 @@
+feh --bg-scale ~/.config/wallpapers/wallhaven-m3zjx1.jpg &
+redshift -l 55.6:37.6 &
+tint2 &
+nm-applet --indicator &
+setxkbmap -layout 'us,ru' -option 'grp:caps_toggle,grp_led:caps' &
+telegram-desktop -startintray &
