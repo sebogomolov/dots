@@ -7,7 +7,7 @@ set autoindent
 set smartindent
 set tabstop=2
 set shiftwidth=2
-set cursorline
+" set cursorline
 set scrolloff=7
 
 filetype indent on  " load filetype-specific indent files
