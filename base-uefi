@@ -2,12 +2,15 @@
 
 #timedatectl set-timezone Europe/Moscow
 #pacman -Sy
+#cfdisk -z /dev/sdx
 #mkfs.fat -F 32 /dev/sdx1
 #mkfs.btrfs /dev/sdx2
 #mount  /dev/sdX2 /mnt
 #btrfs subvolume create /mnt/@
+#btrfs subvolume create /mnt/@home
 #umount /mnt
-#mount -o noatime,space_cache=v2,compress=zstd,ssd,discard=async,subvol=@ /dev/sdx2 /mnt
+#mount -o relatime,ssd,space_cache=v2,discard=async,ssd_spread,compress=zstd:3,subvol=@ /dev/sdx2 /mnt
+#mount -o relatime,ssd,space_cache=v2,discard=async,ssd_spread,compress=zstd:3,subvol=@home /dev/sdx2 /mnt
 #mkdir /mnt/boot
 #mount /dev/sdx1 /mnt/boot
 #pacstrap -K /mnt base linux linux-firmware btrfs-progs zstd neovim git
@@ -16,8 +19,8 @@
 #arch-chroot /mnt/
 
 #ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
-#sed -i '171s/.//' /etc/locale.gen
-#sed -i '398s/.//' /etc/locale.gen
+#ln -s /usr/bin/nvim /usr/bin/vi
+#vi /etc/locale.gen
 #locale-gen
 #echo "LANG=ru_RU.UTF-8" >> /etc/locale.conf
 #echo -e "FONT=cyr-sun16\nKEYMAP=ru" >> /etc/vconsole.conf
@@ -36,13 +39,16 @@
 #systemctl enable firewalld
 
 #useradd -m -G wheel -s /bin/zsh sergey
+#passwd root,sergey
 #usermod -aG libvirt sergey
 
 #grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+#grub-mkconfig -o /boot/grub/grub.cfg
 
-#printf "\e[1;32mDone! Change passwords, add super user, change /etc/defaulst/grub, and run grub-mkconfig -o /boot/grub/grub.cfg.\e[0m"
+#exit
 
-#exit, umount -R /mnt, reboot
+#umount -R /mnt
+#reboot
 
 # BACKUP
 #sudo mount /dev/sdaX /mnt
