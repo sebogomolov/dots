@@ -1,0 +1,122 @@
+{
+  "spacing": 18,
+  "margin-top": 4,
+  "modules-center": [
+    "clock",
+    "hyprland/workspaces",
+    "mpris",
+    "wireplumber",
+    "wireplumber#source",
+    "backlight",
+    "battery",
+    "network",
+    "idle_inhibitor",
+    "tray",
+    "hyprland/language"
+  ], 
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5"
+  },
+  "persistent-workspaces": {
+    "*": 5
+    }
+  },
+  "mpris": {
+    "format": " {dynamic} ",
+    "format-paused": " {dynamic} ",
+    "max-length": 16,
+    "tooltip": false
+  },  
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "󰂲 disabled",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}",
+    "on-click": "rfkill toggle bluetooth",
+    "on-click-right": "blueman-manager",
+    "max-length": 8,
+    "tooltip": false
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}",
+    "format-muted": " {volume}",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "scroll-step": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol -t 3",
+    "tooltip": false
+  },
+  "wireplumber#source": {
+    "node-type": "Audio/Source",
+    "format": "󰍬 {volume}",
+    "format-muted": "󰍭 {volume}",
+    "scroll-step": 5,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "pavucontrol -t 4",
+    "tooltip": false
+  },
+  "backlight": {
+    "format": "{icon} {percent}",
+    "format-icons": ["󰃟"],
+    "scroll-step": 5,
+    "on-click": "pkill hyprsunset || hyprsunset",
+    "tooltip": false
+  },
+  "network": {
+    "interface": "wlp1s0",
+    "format": "",
+    "format-disabled": "󰖪 disabled",
+    "format-wifi": "{icon} {essid}",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"  
+    ],
+    "format-ethernet": "󰈀 {ipaddr}",
+    "max-length": 16,
+    "on-click": "rfkill toggle wifi",
+    "on-click-right": "nm-connection-editor",
+    "tooltip": false
+  },
+  "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+          "activated": "󰒳",
+          "deactivated": "󰒳"
+      }
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 10
+  },
+  "hyprland/language": {
+    "format-en": "en",
+    "format-ru": "ru",
+    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+  },
+  "battery": {
+      "bat": "BAT0",
+      "interval": 60,
+      "format": "{icon} {capacity}",
+      "format-icons": {
+          "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+          "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+      }
+  },
+  "clock": {
+    "interval": 60,
+    "format": "{:%H:%M}",
+    "format-alt": "{:%a %d.%m.%Y}",
+    "tooltip": false
+  }
+}
