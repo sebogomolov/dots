@@ -6,7 +6,6 @@
     "hyprland/workspaces",
     "mpris",
     "wireplumber",
-    "wireplumber#source",
     "backlight",
     "battery",
     "network",
@@ -52,15 +51,6 @@
     "scroll-step": 5,
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol -t 3",
-    "tooltip": false
-  },
-  "wireplumber#source": {
-    "node-type": "Audio/Source",
-    "format": "󰍬 {volume}",
-    "format-muted": "󰍭 {volume}",
-    "scroll-step": 5,
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-    "on-click-right": "pavucontrol -t 4",
     "tooltip": false
   },
   "backlight": {
